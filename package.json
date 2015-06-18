@@ -1,9 +1,8 @@
 {
-  "name": "microscope-angular",
+  "name": "winjs-navbar",
   "version": "1.0.0",
-  "description": "AngularJS (CommonJS/ Browserify) starter kit.",
+  "description": "AngularJS - WinJS nav bar",
   "scripts": {
-    "start": "gulp",
     "test": "gulp test"
   },
   "author": "Benjamin Heintz",
