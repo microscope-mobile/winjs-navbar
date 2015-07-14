@@ -1,11 +1,11 @@
-var gulp         = require('gulp');
-var WorkflowForm = require('./tasks/form/WorkflowForm');
-require('./tasks/build');
-require('./tasks/serve');
-require('./tasks/test');
-require('./tasks/docs');
+var gulp = require('gulp');
 
-// default task => instanciate GulpForm
-gulp.task('default', function (cb) {
-	var g = new WorkflowForm(cb);
-});
+require('./tasks/build');
+require('./tasks/sass');
+require('./tasks/watch');
+require('./tasks/test');
+require('./tasks/server');
+
+gulp.task('build', ['browserify', 'sass', 'fonts', 'assets','templates']);
+gulp.task('release', ['browserify:release', 'sass', 'fonts', 'assets','templates']);
+gulp.task('default', ['sass']);

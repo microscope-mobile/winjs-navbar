@@ -13,5 +13,5 @@ gulp.task('connect', function() {
 
 // serve task => build & connect
 gulp.task('serve', function (cb) {
-	runSequence('clean', 'assets', 'templates', 'browserify', 'watch', 'connect');
+	runSequence('build', 'watch', 'connect');
 });

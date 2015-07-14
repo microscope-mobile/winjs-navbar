@@ -1,27 +1,15 @@
-var gulp        = require('gulp');
-var del         = require('del');
+// imports
+var gulp = require('gulp');
 var browserify  = require('browserify');
 var source      = require('vinyl-source-stream');
-var uglify      = require('gulp-uglify');
+var uglify = require('gulp-uglify');
 var buffer      = require('vinyl-buffer');
-var runSequence = require('run-sequence');
-
-// build project
-gulp.task('build', function (cb) {
-    runSequence('clean', 'assets', 'templates', 'browserify');
-});
-
-// build project in release mode
-gulp.task('release', function (cb) {
-    runSequence('clean', 'assets', 'templates', 'browserify:release');
-});
 
 // build src
-gulp.task('browserify', function(cb){
-	
+gulp.task('browserify', function(cb){	
  	return browserify('./src/app.js', {
-             debug: true
-         })
+            debug: true 
+        })
         .bundle()
         .pipe(source('bundle.js'))
         .pipe(gulp.dest('./www/'));
@@ -29,7 +17,7 @@ gulp.task('browserify', function(cb){
     cb();
 });
 
-// build:release
+// build in release mode
 gulp.task('browserify:release', function(cb){
 	
  	return browserify('./src/app.js')
@@ -42,29 +30,23 @@ gulp.task('browserify:release', function(cb){
     cb();
 });
 
-// watch files and run appropriate tasks
-gulp.task('watch', function () {
-    gulp.watch(['./assets/**'], ['assets']);
-    gulp.watch(['./src/**/*.js'], ['browserify']);
-    gulp.watch(['./src/**/*.html'], ['templates']);
-});
-
-// assets tasks
-gulp.task('assets', function(cb){
-    gulp.src('./assets/**').pipe(gulp.dest('./www'));
-    gulp.src('node_modules/winjs/css/**/*').pipe(gulp.dest('./www/css'));
-    gulp.src('node_modules/winjs/fonts/**/*').pipe(gulp.dest('./www/fonts'));
+// copy fonts
+gulp.task('fonts', function(cb){
+ 	return gulp.src('node_modules/ionic-framework/release/fonts/**')
+        .pipe(gulp.dest('./www/fonts/'));
     cb();
 });
 
-// templates tasks
-gulp.task('templates', function(cb){
-    return gulp.src('./src/**/*.html')
+// copy assets
+gulp.task('assets', function(cb){
+ 	return gulp.src('./assets/**')
         .pipe(gulp.dest('./www/'));
     cb();
 });
 
-// clean build folder task
-gulp.task('clean', function(cb){
-    del(['./www/'], {force: true}, cb);
+// copy templates
+gulp.task('templates', function(cb){
+    return gulp.src('./src/**/*.html')
+        .pipe(gulp.dest('./www/'));
+    cb();
 });
