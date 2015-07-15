@@ -32,7 +32,7 @@ gulp.task('browserify:release', function(cb){
 
 // copy fonts
 gulp.task('fonts', function(cb){
- 	return gulp.src('node_modules/ionic-framework/release/fonts/**')
+ 	return gulp.src('./node_modules/winjs/fonts/**')
         .pipe(gulp.dest('./www/fonts/'));
     cb();
 });
@@ -44,9 +44,6 @@ gulp.task('assets', function(cb){
         
     gulp.src('./node_modules/winjs/css/**')
         .pipe(gulp.dest('./www/css'));
-        
-    gulp.src('./node_modules/winjs/fonts/**')
-        .pipe(gulp.dest('./www/fonts'));
         
     cb();
 });
