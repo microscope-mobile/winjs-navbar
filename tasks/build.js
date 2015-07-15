@@ -39,8 +39,15 @@ gulp.task('fonts', function(cb){
 
 // copy assets
 gulp.task('assets', function(cb){
- 	return gulp.src('./assets/**')
+ 	gulp.src('./assets/**')
         .pipe(gulp.dest('./www/'));
+        
+    gulp.src('./node_modules/winjs/css/**')
+        .pipe(gulp.dest('./www/css'));
+        
+    gulp.src('./node_modules/winjs/fonts/**')
+        .pipe(gulp.dest('./www/fonts'));
+        
     cb();
 });
 
