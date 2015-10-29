@@ -1,12 +1,19 @@
 <section ng-controller="HomeCtrl as vm">
-	
-	<h1 class="win-h1">Home</h1>
-	<p>
-		Lorem ipsum dolor sit amet, consectetur adipisicing elit. At est repellendus laborum tempore quisquam deleniti rerum dolores beatae possimus minima qui maxime doloremque, illo earum aperiam cupiditate quidem ex nihil?
-	</p>
-	
+
+	<win-pivot>
+		<win-pivot-item header="'First'">
+			Pivots are useful for varied content
+		</win-pivot-item>
+		<win-pivot-item header="'Second'">
+			This Pivot is boring however, it just has things like data bindings: {{ratings.length}}
+		</win-pivot-item>
+		<win-pivot-item header="'Tail...'">
+			Because it's only purpose is to show how to create a Pivot
+		</win-pivot-item>
+	</win-pivot>
+
 	<win-app-bar>
 		<win-app-bar-command label="'Home'" icon="'home'" tooltip="'Go home!!'"></win-app-bar-command>
-		<win-app-bar-command label="'Welcome'" icon="'emoji2'"  ng-click="vm.navigate()"></win-app-bar-command>
+		<win-app-bar-command label="'Welcome'" icon="'emoji2'" ng-click="vm.navigate()"></win-app-bar-command>
 	</win-app-bar>
 </section>
