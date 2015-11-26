@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "AngularJS - WinJS nav bar",
   "scripts": {
+    "start": "http-server ./www -s",
     "test": "gulp test"
   },
   "author": "Benjamin Heintz",
@@ -18,6 +19,7 @@
     "angular": "^1.3.11",
     "angular-route": "^1.3.11",
     "angular-winjs": "^4.3.0",
+    "http-server": "^0.8.5",
     "jquery": "^2.1.3",
     "winjs": "^4.4.0"
   },
